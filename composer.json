@@ -1,0 +1,31 @@
+{
+  "name": "kolter/csselectorparser",
+  "description": "A Csselector Translator to PHP",
+  "version": "1.0",
+  "keywords": ["csselector", "translator"],
+  "homepage": "https://github.com/Ozumas7/csselectortranslator",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "Pablo Luna",
+      "email": "skyluna7@gmail.com"
+    }
+  ],
+  "require": {
+    "php":">=7.1.8",
+    "kolter/collections": "^1.0"
+  },
+  "require-dev":{
+
+  },
+  "autoload": {
+    "psr-4": {
+      "Kolter\\CsselectorParser\\": "src/"
+    }
+  },
+  "autoload-dev":{
+    "psr-4":{
+      "Kolter\\CsselectorParser\\Tests\\": "tests/"
+    }
+  }
+}
