@@ -36,6 +36,9 @@ class ElementNode extends NodeAbstract
                 $attr = AttributeNode::getAttrByString($selector);
                 $this->addAttr($attr);
                 break;
+            default:
+                $this->setTag($selector);
+                break;
         }
 
         return $this;
