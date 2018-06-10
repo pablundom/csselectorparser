@@ -22,7 +22,7 @@ class TokenStream
         $this->tokens = Collections::newArrayList();
     }
 
-    public function read()
+    public function read(): array
     {
         $streams = $this->getStreams();
         while(!$this->inputStream->eof()){
@@ -37,6 +37,8 @@ class TokenStream
             if($checked) continue;
             $this->inputStream->next();
         }
+
+        return $this->tokens->all();
 
     }
 
