@@ -21,6 +21,7 @@ class ElementNode extends NodeAbstract
     public function parseSelector(string $selector) : ElementNode
     {
         $firstChar = substr($selector,0,1);
+
         switch ($firstChar){
             case '#':
                 $this->setId(substr($selector,1));
@@ -119,7 +120,7 @@ class ElementNode extends NodeAbstract
     /**
      * @return array
      */
-    public function getChildren(): ElementNode
+    public function getChildren(): ?ElementNode
     {
         return $this->children;
     }
@@ -189,6 +190,22 @@ class ElementNode extends NodeAbstract
     public function setChildrenUnionType($childrenUnionType): void
     {
         $this->childrenUnionType = $childrenUnionType;
+    }
+
+    public function __toString() : string
+    {
+        $result="";
+
+        if($this->getTag()!==null) $result.=$this->getTag();
+        if($this->id!==null) $result.="#".$this->id;
+        if(!empty($this->classes)) {
+            $result.=".".implode(".",$this->classes);
+        }
+        if($this->pseudoSelector!==null) $result.=":".$this->pseudoSelector;
+        if(!empty($this->attrs))$result.=implode("",$this->attrs);
+        if($this->getChildren()!==null) $result.=$this->getChildrenUnionType().$this->getChildren()->__toString();
+
+        return $result;
     }
 
 

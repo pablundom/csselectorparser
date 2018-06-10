@@ -47,6 +47,8 @@ class AttributeNode implements Node
         return $result;
     }
 
+
+
     /**
      * @return null|string
      */
@@ -101,6 +103,13 @@ class AttributeNode implements Node
         return $this;
     }
 
+    public function __toString() : string
+    {
+        $result = "[".$this->getKey();
+        if(!is_null($this->getUnion())) $result.=$this->getUnion();
+        if(!is_null($this->getValue())) $result.="=".$this->getValue();
 
+        return $result."]";
+    }
 
 }

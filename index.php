@@ -1,15 +1,13 @@
 <?php
 
 
-use Kolter\CsselectorParser\Lexer\Lexer;
-use Kolter\CsselectorParser\Tokenizer\Stream\InputStream;
-use Kolter\CsselectorParser\Tokenizer\Stream\TokenStream;
 
 include "vendor/autoload.php";
 
 
-$query = "p";
+$query = "p#lol.papa[value|=lol][jiji^=pepe]>jiji.lol#pepe";
 $css = new \Kolter\CsselectorParser\CsselectorParser($query);
 
-var_dump($css->parse());
+$css =$css->parse()[0];
 
+echo $css;
